@@ -9,4 +9,4 @@ How to use it:
 con comandos.
 
 Examples:
-help, quit
+help, quit.
