@@ -10,7 +10,8 @@ class BaseModel:
         self.updated_at = self.save()
 
     def __str__(self):
-        return ("[{}] ({}) {}".format(type(self).__name__, self.id, self.__dict__))
+        return ("[{}] ({}) {}".format(type(self).__name__, 
+        self.id, self.__dict__))
 
     def save(self):
         self.updated_at = datetime.datetime.now()
