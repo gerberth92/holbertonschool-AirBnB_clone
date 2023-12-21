@@ -26,8 +26,8 @@ class FileStorage:
     def reload(self):
         if exists(self.__file_path):
             with open(self.__file_path, "r", encoding="utf-8") as doc:
-                self.__objects = json.load(doc)
+                new = json.load(doc)
 
-        for clave, valor in self.__objects.items():
-            clase = globals()[valor["__class__"]]
-            self.__objects[clave] = clase(**valor)
+            for clave, valor in new.items():
+                clase = globals()[valor["__class__"]]
+                self.__objects[clave] = clase(**valor)
