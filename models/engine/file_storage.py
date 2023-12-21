@@ -3,6 +3,7 @@ from models.base_model import BaseModel
 import json
 from os.path import exists
 
+clases = {"BaseModel": BaseModel}
 
 class FileStorage:
     __file_path = "file.json"
