@@ -17,7 +17,7 @@ class FileStorage:
 
     def save(self):
         new = {}
-        for clave, valor in self.__objects:
+        for clave, valor in self.__objects.items():
             new[clave] = valor.to_dict()
 
         with open(self.__file_path, "w", encoding="utf-8") as archivo:
