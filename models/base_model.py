@@ -6,8 +6,9 @@ import models
 
 class BaseModel:
     def __init__(self, *args, **kwargs):
+        copia = kwargs.copy()
         if kwargs:
-            for key, value in kwargs.copy().items():
+            for key, value in copia.items():
                 if key == "__class__":
                     del kwargs[key]
 
