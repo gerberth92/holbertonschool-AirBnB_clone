@@ -12,7 +12,7 @@ class FileStorage:
         return (self.__dict__)
 
     def new(self, obj):
-        key = "{}.{}".format(type(obj).__name__)
+        key = "{}.{}".format(type(obj).__name__, obj.id)
         self.__objects[key] = obj
 
     def save(self):
