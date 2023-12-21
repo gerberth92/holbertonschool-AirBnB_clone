@@ -7,7 +7,7 @@ import models
 class BaseModel:
     def __init__(self, *args, **kwargs):
         if kwargs:
-            for key, value in kwargs.items():
+            for key, value in kwargs.copy().items():
                 if key == "__class__":
                     del kwargs[key]
 
