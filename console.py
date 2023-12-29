@@ -1,8 +1,14 @@
 #!/usr/bin/python3
+"""
+Este modulo tiene un programa.
+"""
 import cmd
 
 
 class HBNBCommand(cmd.Cmd):
+    """
+    Esta clase define un programa llamado "hbnb".
+    """
     prompt = '(hbnb) '
 
     def do_quit(self, args):
