@@ -23,5 +23,8 @@ class HBNBCommand(cmd.Cmd):
         """Documented commands (type help <topic>):"""
         cmd.Cmd.do_help(self, args)
 
+    def emptyline(self):
+        pass
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
