@@ -4,7 +4,7 @@ from models.user import User
 import json
 from os.path import exists
 
-clases = {"BaseModel": BaseModel, "User":User}
+clases = {"BaseModel": BaseModel, "User": User}
 
 class FileStorage:
     __file_path = "file.json"
@@ -30,5 +30,6 @@ class FileStorage:
             with open(self.__file_path, "r", encoding="utf-8") as doc:
                 for clave, valor in json.load(doc).items():
                     if valor["__class__"] in clases:
-                        clase = valor["__class__"]
+                        nombre = valor["__class__"]
+                        clase = clases[nombre]
                         self.__objects[clave] = clase(**valor)
