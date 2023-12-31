@@ -7,18 +7,21 @@ import models
 class BaseModel:
     def __init__(self, *args, **kwargs):
         if kwargs:
-            for key, value in kwargs.items():
+            copia = kwargs.copy()
+            for key, value in copia.items():
                 if key == "__class__":
                     del kwargs[key]
 
-                if key == "created_at" or key == "updated_at":
+                elif key == "created_at" or key == "updated_at":
                     value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
                     setattr(self, key, value) 
+                else:
+                    setattr(self, key, value)
 
         else:
             self.id = str(uuid4())
             self.created_at = datetime.now()
-            self.updated_at = self.save()
+            self.updated_at = datetime.now()
             models.storage.new(self)
 
     def __str__(self):
@@ -26,9 +29,11 @@ class BaseModel:
                                       .__name__, self.id, self.__dict__))
 
     def save(self):
+        """
+        Actualiza la fecha.
+        """
         self.updated_at = datetime.now()
         models.storage.save()
-        return (self.updated_at)
 
     def to_dict(self):
         new_dict = self.__dict__.copy()
