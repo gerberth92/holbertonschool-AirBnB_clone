@@ -1,8 +1,10 @@
 #!/urs/bin/python3
 from models.base_model import BaseModel
+from models.user import User
 import json
 from os.path import exists
 
+clases = {"BaseModel": BaseModel, "User":User}
 
 class FileStorage:
     __file_path = "file.json"
@@ -27,6 +29,6 @@ class FileStorage:
         if exists(self.__file_path):
             with open(self.__file_path, "r", encoding="utf-8") as doc:
                 for clave, valor in json.load(doc).items():
-                    if valor["__class__"] == "BaseModel":
-                        clase = BaseModel
+                    if valor["__class__"] in clases:
+                        clase = valor["__class__"]
                         self.__objects[clave] = clase(**valor)

@@ -1,0 +1,12 @@
+#!/usr/bin/python3
+"""
+Define una clase User
+"""
+from .base_model import BaseModel
+
+
+class User(BaseModel):
+    email = ""
+    password = ""
+    first_name = ""
+    last_name = ""

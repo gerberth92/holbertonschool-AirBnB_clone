@@ -6,8 +6,9 @@ import cmd
 from shlex import split
 import models
 from models.base_model import BaseModel
+from models.user import User
 
-clases = {"BaseModel": BaseModel}
+clases = {"BaseModel": BaseModel, "User": User}
 
 
 class HBNBCommand(cmd.Cmd):
