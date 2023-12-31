@@ -30,5 +30,5 @@ class FileStorage:
             with open(self.__file_path, "r", encoding="utf-8") as doc:
                 for clave, valor in json.load(doc).items():
                     if valor["__class__"] in clases:
-                        clase = clases[valor["__class__"]]
+                        clase = valor["__class__"]
                         self.__objects[clave] = clase(**valor)
