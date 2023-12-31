@@ -1,10 +1,17 @@
 #!/urs/bin/python3
 from models.base_model import BaseModel
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
 from models.user import User
 import json
 from os.path import exists
 
-clases = {"BaseModel": BaseModel, "User": User}
+clases = {"BaseModel": BaseModel, "User": User,
+          "Place": Place, "State": State, "City": City,
+          "Amenity": Amenity, "Review": Review}
 
 class FileStorage:
     __file_path = "file.json"
